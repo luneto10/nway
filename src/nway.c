@@ -1770,6 +1770,7 @@ void *run_sweep_subset(void *arg)
     }
     priq_free(q);
     priq_free(c);
+    return NULL;
 }
 //}}}
 
@@ -2074,6 +2075,7 @@ void *run_sweep_center(void *arg)
             "\tsteps:%d\n",
             _time, max_time, min_time,p->start, p->end,hit);
 #endif
+    return NULL;
 }
 //}}}
 
@@ -2141,6 +2143,7 @@ void *run_get_center_split(void *arg)
         printf("run_get_center_split:%lu\n", t);
 #endif
     }
+    return NULL;
 }
 //}}}
 
@@ -2517,7 +2520,7 @@ void *pone_split_o(void *ptr)
                 *(args->work) = -1;
                 pthread_mutex_unlock(args->work_mutex);
                 pthread_cond_signal(args->cond_mutex);
-                return;
+                return NULL;
             }
 
             pthread_cond_wait(args->cond_mutex, args->work_mutex);
@@ -2528,7 +2531,7 @@ void *pone_split_o(void *ptr)
         if (*(args->work) < 0) {
             pthread_mutex_unlock(args->work_mutex);
             pthread_cond_signal(args->cond_mutex);
-            return;
+            return NULL;
         }
 
         // Grab the work and move the counter of works left down by one

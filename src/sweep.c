@@ -5,6 +5,7 @@
 #include <limits.h>
 #include "pq.h"
 #include "nway.h"
+#include "utils.h"
 #include "timer.h"
 
 #define MIN(X,Y) ((X) < (Y) ? (X) : (Y))

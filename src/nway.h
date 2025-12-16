@@ -186,7 +186,7 @@ void print_path(struct split_search_node *node);
 
 void print_intersection(struct int_list_list *R);
 
-void split();
+/* removed old prototype: void split(); use the full prototype below */
 
 void sweep(struct interval **S,
            int *set_sizes,

@@ -26,5 +26,5 @@ for l in f:
         if i < (len(A) - 1):
             n_start,n_end = [int(x) for x in A[i+1].split(' ')]
             dist = n_start - c_end
-            print dist
+            print(dist)
 f.close()

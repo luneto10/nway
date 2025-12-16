@@ -16,7 +16,7 @@ class Timer(object):
 		self.secs = self.end - self.start
 		self.msecs = self.secs * 1000  # millisecs
 		if self.verbose:
-			print 'elapsed time: %f ms' % self.msecs
+			print('elapsed time: %f ms' % self.msecs)
 
 #{{{def b_search_starts(key,S,lo,hi):
 # i is the interval we are searching for within 
@@ -24,7 +24,7 @@ class Timer(object):
 def b_search_starts(key,S,lo,hi):
 	mid = -1
 	while (hi - lo > 1):
-		mid = (hi + lo) / 2;
+		mid = (hi + lo) // 2
 		#print mid
 		# test if the start of i is after then end
 		# of S[mid]
@@ -39,7 +39,7 @@ def b_search_starts(key,S,lo,hi):
 def b_search_ends(key,S,lo,hi):
 	mid = -1
 	while (hi - lo > 1):
-		mid = (hi + lo) / 2;
+		mid = (hi + lo) // 2
 		# test if the start of i is after then end
 		# of S[mid]
 		if S[mid][1] < key:
@@ -101,7 +101,7 @@ def _nway_split(S,s_range,Q,depth):
 	for q in Q:
 		a = S[s_range[0]]
 		a_dim = q[0]
-		mid = (a_dim[1]+1 + a_dim[0]-1)/2
+		mid = (a_dim[1]+1 + a_dim[0]-1)//2
 		root = a[mid]
 		new_q = ()
 		r = []
@@ -246,7 +246,7 @@ def _nway_sweep(S,num_S,curr_s,end_s):
 	head = 0
 	at_end = False
 	drained_lists = False
-	not_ended = range(0,num_S)
+	not_ended = list(range(0,num_S))
 
 	while len(not_ended) > 0:
 
@@ -310,7 +310,7 @@ def main():
 
 		#for s in S:
 			#print s
-		print
+		print()
 
 		with Timer() as t_sweep:
 			R1 = nway_sweep(S)
@@ -318,7 +318,7 @@ def main():
 		with Timer() as t_split:
 			R2= nway_split(S)
 
-		print num_sets,t_sweep.secs,t_split.secs,len(R1),len(R2)
+		print(num_sets,t_sweep.secs,t_split.secs,len(R1),len(R2))
 
 if __name__ == "__main__":
 	main()

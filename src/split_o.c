@@ -4,6 +4,7 @@
 #include <string.h>
 #include "pq.h"
 #include "nway.h"
+#include "utils.h"
 #include "timer.h"
 
 

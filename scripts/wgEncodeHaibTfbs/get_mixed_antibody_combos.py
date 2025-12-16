@@ -83,7 +83,7 @@ for count in sorted(cell_type_counts.keys()):
 
 for cell_type in possible_cell_types:
     rand_choice = []
-    print options.out_dir + '/' + cell_type + '.set'
+    print(options.out_dir + '/' + cell_type + '.set')
     for antibody in cell_types[cell_type]:
         r = random.choice(cell_types[cell_type][antibody])
         rand_choice.append(options.data_dir + '/' + r.set_name)

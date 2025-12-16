@@ -32,5 +32,5 @@ for l in f:
 f.close()
 
 hist,bin_edges = np.histogram(D)
-print '\t'.join([str(x) for x in hist])
-print '\t'.join([str(int(x)) for x in bin_edges])
+print('\t'.join([str(x) for x in hist]))
+print('\t'.join([str(int(x)) for x in bin_edges]))

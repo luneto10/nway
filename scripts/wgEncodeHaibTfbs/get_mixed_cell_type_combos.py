@@ -87,7 +87,7 @@ for antibody in possible_antibodies:
     antibody_pretty = re.sub(r"\(", "-", antibody)
     antibody_pretty = re.sub(r"\)", "-", antibody_pretty)
     rand_choice = []
-    print options.out_dir + '/' + antibody_pretty + '.set'
+    print(options.out_dir + '/' + antibody_pretty + '.set')
     for cell_type in antibodies[antibody]:
         r = random.choice(antibodies[antibody][cell_type])
         rand_choice.append(options.data_dir + '/' + r.set_name)
