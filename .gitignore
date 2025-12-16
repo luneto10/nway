@@ -17,3 +17,6 @@
 *.app
 
 *.pyc
+
+# Generated result files
+data/results_set/
