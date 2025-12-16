@@ -31,8 +31,8 @@ EXECS=split \
 all: $(EXECS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)
-	[ -d $(OBJ_DIR) ] || mkdir -p $(OBJ_DIR)
-	[ -d $(BIN_DIR) ] || mkdir -p $(BIN_DIR)
+	@if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)
+	@if not exist $(BIN_DIR) mkdir $(BIN_DIR)
 	$(CC) -g -c -o $@ $< $(CFLAGS) $(DFLAGS)
 
 little_split: little_split.o $(OBJ)
@@ -90,4 +90,5 @@ get_l1: $(OBJ_DIR)/get_l1.o $(OBJ)
 	gcc -o $(BIN_DIR)/$@ $^ $(CFLAGS)
 
 clean:
-	rm -rf obj bin
+	@if exist obj rmdir /s /q obj
+	@if exist bin rmdir /s /q bin

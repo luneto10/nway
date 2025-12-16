@@ -1,13 +1,23 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "lldb",
-      "request": "launch",
-      "args": [],
-      "cwd": "/Users/luneto10/Documents/Projects/Research/nway/src",
-      "program": "/Users/luneto10/Documents/Projects/Research/nway/src/build/Debug/outDebug"
-    }
-  ]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C/C++ Runner: Debug Session",
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "/Users/luneto10/Documents/Projects/Research/nway/src",
+            "program": "/Users/luneto10/Documents/Projects/Research/nway/src/build/Debug/outDebug"
+        },
+        {
+            "name": "Python: Debug get_rand_combos.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/wgEncodeUwTfbs/get_rand_combos.py",
+            "args": ["-d", ".\\data\\set\\", "-o", "teste.set"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        }
+    ]
 }

@@ -28,8 +28,8 @@ for i in I:
             #line.append(str(S[j][k][0]) + \
                         #' ' + \
                         #str(S[j][k][1]))
-        print S[j][i[j]]
+        print(S[j][i[j]])
         #f 
-        #print '\t'.join(line)
+        #print('\t'.join(line))
         #start = S[j][i[j]][0]
         #end = S[j][i[j]][1]

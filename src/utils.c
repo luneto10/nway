@@ -10,6 +10,17 @@
 #include <dirent.h>
 #include <glob.h>
 
+/* Windows compatibility: strtok_r is not available on Windows, use strtok_s instead */
+#ifdef _WIN32
+#ifndef strtok_r
+#define __STDC_WANT_LIB_EXT1__ 1
+#include <string.h>
+static char *strtok_r(char *str, const char *delim, char **saveptr) {
+    return strtok_s(str, delim, saveptr);
+}
+#endif
+#endif
+
 //{{{ void usage(char *prog)
 void usage(char *prog)
 {

@@ -27,7 +27,7 @@ for l in f:
         if last == 0:
             last = d
         elif (last[1] > d[0]):
-            print last,d
+            print(f"{last} {d}")
         last = d
     s_id += 1
 f.close()

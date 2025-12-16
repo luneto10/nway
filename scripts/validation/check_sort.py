@@ -9,5 +9,5 @@ for l in f:
     for a in A:
         d = [int(x) for x in a.split(" ")]
         if d[0] < last:
-            print d
+            print(d)
         last = d[0]

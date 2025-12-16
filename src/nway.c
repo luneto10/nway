@@ -14,6 +14,17 @@
 #include <limits.h>
 #include <inttypes.h>
 
+/* Windows compatibility: strtok_r is not available on Windows, use strtok_s instead */
+#ifdef _WIN32
+#ifndef strtok_r
+#define __STDC_WANT_LIB_EXT1__ 1
+#include <string.h>
+static char *strtok_r(char *str, const char *delim, char **saveptr) {
+    return strtok_s(str, delim, saveptr);
+}
+#endif
+#endif
+
 #define MIN(X,Y) ((X) < (Y) ? (X) : (Y))
 #define MAX(X,Y) ((X) > (Y) ? (X) : (Y))
 

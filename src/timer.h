@@ -14,6 +14,8 @@ Licenced under the GNU General Public License 2.0 license.
 #ifndef __TIMER_H__
 #define __TIMER_H__
 
+#include <sys/time.h>
+
 void start();
 
 void stop();

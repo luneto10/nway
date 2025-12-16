@@ -53,6 +53,6 @@ for l in f:
         end = I[i][int(A[i])][1]
         curr_min = max(curr_min, start)
         curr_max = min(curr_max, end)
-    print curr_min,curr_max,curr_max - curr_min
+    print(f"{curr_min} {curr_max} {curr_max - curr_min}")
 f.close()
 

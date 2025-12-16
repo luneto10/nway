@@ -23,12 +23,12 @@ if not options.bed_files:
 offsets = {}
 offset = 0
 
-# Lê o arquivo de genoma de forma robusta
+# Read genome file robustly (handles tabs/spaces, skips empty lines)
 with open(options.genome_file, "r") as f:
     for l in f:
         if not l.strip():
             continue
-        # split() sem argumento quebra em qualquer espaço/tab
+        # split() without argument splits on any whitespace (space/tab)
         a = l.strip().split()
         if len(a) < 2:
             continue
@@ -40,7 +40,7 @@ with open(options.genome_file, "r") as f:
         offsets[chrom] = offset
         offset += size
 
-# Converte cada BED/broadPeak em .set
+# Convert each BED/broadPeak file to .set format
 for file_name in glob.glob(options.bed_files):
     with open(file_name, "r") as f:
         line = []
@@ -53,12 +53,12 @@ for file_name in glob.glob(options.bed_files):
 
             chrom = a[0].strip()
 
-            # Se tiver caso chrM mas o genome usa chrMT, mapeia
+            # Map chrM to chrMT if genome file uses chrMT
             if chrom == "chrM" and "chrMT" in offsets:
                 chrom = "chrMT"
 
             if chrom not in offsets:
-                # Ignora cromossomos que não estão no genome_file
+                # Skip chromosomes that are not in the genome_file
                 sys.stderr.write(
                     f"Warning: chromosome {chrom} not in genome file, skipping line\n"
                 )
@@ -71,8 +71,9 @@ for file_name in glob.glob(options.bed_files):
                 continue
 
             base_offset = offsets[chrom]
+            # Convert to linear coordinates: BED end is exclusive, so subtract 1
             line.append([start + base_offset, end + base_offset - 1])
 
-    # Ordena e imprime a linha única com os pares
+    # Sort and print as a single line with tab-separated interval pairs
     l_s = sorted(line)
     print("\t".join([f"{x[0]} {x[1]}" for x in l_s]))

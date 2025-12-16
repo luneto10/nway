@@ -46,4 +46,4 @@ for s in S:
             in_context[1] = max(in_context[1],i[1])
 
     n.append(in_context)
-    print "\t".join(str(x[0]) + " " + str(x[1]) for x in n)
+    print("\t".join([str(x[0]) + " " + str(x[1]) for x in n]))
